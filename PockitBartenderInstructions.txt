@@ -1,0 +1,32 @@
+App:
+	https://pockitbartender.firebaseapp.com
+Server:
+	https://agile-thicket-89184.herokuapp.com
+
+git commands:
+	checkout new branch: git checkout -b <branch-name>
+	stage code: git add .
+	commit code: git commit -m "<commit message>"
+	push code: git push origin <branch-name>
+	pull latest code for branch: git pull
+
+run client app:
+	** must be in the App/bartender directory **
+	locally: npm run serve
+	build for prod: npm run build
+		(this command builds the javascript app and places it in the dist folder)
+	deploy to firebase: firebase deploy
+
+run server:
+	** must be in Server/PockitBartender **
+	locally: npm start
+	
+	** must be in root of repository **
+	deploy to heroku:  git subtree push --prefix Server/PockitBartender heroku master
+		(this command pushes the subdirectoy Server/PockitBartender for your local master branch to heroku and deploys that on heroku.
+			Make sure that your local master branch has the most up to date code as that is what will be deployed.)
+
+links:
+	deploying to heroku: https://devcenter.heroku.com/articles/deploying-nodejs#prerequisites
+	deploying to firebase: https://medium.com/@ShayneOSullivan/deploy-a-vue-js-app-with-firebase-hosting-3fc420cf3998
+	cors solution: http://johnzhang.io/options-request-in-express
