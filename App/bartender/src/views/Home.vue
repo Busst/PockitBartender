@@ -1,15 +1,20 @@
+
+
 <template>
   <div class="home">
-    <h1>Hello {{ userName }}</h1>
+    
+    <h1>Welcome {{ userName }}!</h1>
+    
     <button @click="logout">Logout</button><br/>
-    <router-link :to="{ name: 'AddDrink' }">Add Drink</router-link><br/>
-    <input v-model="searchTerm" placeholder="search drinks">
+    <router-link :to="{ name: 'AddDrink' }" ><h3>Add Drink</h3></router-link><br/>
+    <input class="cc" v-model="searchTerm" placeholder="search drinks">
     <div v-for="drink in drinks" :key="drink.name">
-      <router-link :to="{ name: 'Drink', params:{ name: drink.name } }"><h1>{{ drink.name }}</h1></router-link>
+      <router-link :to="{ name: 'Drink', params:{ name: drink.name } }"><h2>{{ drink.name }}</h2></router-link>
       <p>{{ drink.recipe }}</p>
     </div>
   </div>
 </template>
+
 
 <script>
 import firebase from 'firebase'
@@ -68,3 +73,47 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+.class {
+  align-content: center;
+}
+.cc {
+  background-color: aqua;
+  position: absolute;
+  font-size: 12pt;
+  width: 50%;
+  top: 20%;
+  left: 25%;
+}
+h1, h2 {
+  text-align: center; 
+  
+}
+h1 {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #b1dda2
+}
+h3 {
+  text-align: center;
+  font-size: 16pt;
+}
+p {
+  text-align: center;
+  font-size: 13pt;
+}
+
+button {
+  text-align: center;
+  position: absolute;
+  transition: .5s ease;
+  top: 5.5%;
+  left: 95%;
+}
+  
+</style>
+
+
+
