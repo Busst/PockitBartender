@@ -15,7 +15,7 @@ router.get('/:id', function (req, res) {
         .then(doc => {
             if (!doc.exists) {
                 console.log('Does not exist');
-                res.send('boo');
+                res.send('User does not exist');
             } else {
                 console.log(doc.data());
                 res.send(doc.data());
@@ -23,7 +23,7 @@ router.get('/:id', function (req, res) {
         })
         .catch(err => {
             console.log('something bad');
-            res.send('boo');
+            res.send('Could not find user.');
         });
 
 });
@@ -51,7 +51,7 @@ router.post('/', function (req, res) {
 
         userCol.doc(id).set(user, function (error) {
             if (error) {
-                res.send('boo');
+                res.send('Error saving user.');
             } else {
                 res.send(user);
             }
@@ -59,7 +59,7 @@ router.post('/', function (req, res) {
         res.send(user);
     } catch (ex) {
         console.log(ex);
-        res.send('boo');
+        res.send('Error Occurred.');
     }
 });
 

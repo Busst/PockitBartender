@@ -22,6 +22,7 @@ router.get('/:name', function (req, res) {
         })
         .catch(err => {
             console.log('something bad');
+            res.send('could not find drink.')
         });
 
 });
@@ -44,5 +45,28 @@ router.post('/', function (req, res) {
     res.send({ name, recipe });
 
 });
+
+router.post('/filter', function (req, res, next) {
+    var searchTerm = req.body.searchTerm.toLowerCase();
+    var drinksRef = db.collection('drinks');
+    var foundDrinks = [];
+
+    drinksRef.get()
+        .then(snapshot => {
+            snapshot.forEach(doc => {
+                var key = doc.id.toLowerCase();
+                if (key.indexOf(searchTerm) >= 0) {
+                    foundDrinks.push(doc.data())
+                }
+            });
+            res.send(foundDrinks);
+        })
+        .catch(err => {
+            console.log('Error getting documents', err)
+
+        });
+});
+
+
 
 module.exports = router;
