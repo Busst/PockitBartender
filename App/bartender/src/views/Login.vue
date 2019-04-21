@@ -35,7 +35,7 @@
         const that = this
         Services.getUser(id)
           .then((response) => {
-            that.$store.dispatch('setUser', response)
+            that.$store.dispatch('setUser', response.data)
             that.$router.replace('home')
           })
           .catch((error) => {

@@ -1,5 +1,6 @@
 <template>
   <div class="add-drink">
+      <router-link :to="{ name: 'Home' }">Home</router-link>
       <h1>Concoct Drink</h1>
     <input v-model="name" placeholder="Drink Name"><br/>
     <textarea v-model="recipe" placeholder="Drink Recipe"></textarea><br/>

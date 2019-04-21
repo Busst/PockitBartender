@@ -1,5 +1,6 @@
 <template>
     <div class="show-drink">
+        <router-link :to="{ name: 'Home' }">Home</router-link>
         <template v-if="isEditing">
             <h1>{{ drinkName }}</h1>
             <textarea v-model="drinkRecipe" placeholder="Drink Recipe"></textarea><br/>
