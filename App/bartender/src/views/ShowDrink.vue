@@ -1,0 +1,70 @@
+<template>
+    <div class="show-drink">
+        <template v-if="isEditing">
+            <h1>{{ drinkName }}</h1>
+            <textarea v-model="drinkRecipe" placeholder="Drink Recipe"></textarea><br/>
+            <button @click="handleSaveDrink">Concoct Drink!</button>
+        </template>
+        <template v-else>
+            <h1>{{ drinkName }}</h1>
+            <p>{{ drinkRecipe }}</p>
+            <button @click="handleEdit">Update Recipe</button>
+        </template>
+    </div>
+</template>
+
+<script>
+  import Services from '@/services'
+
+  export default {
+    name: 'ShowDrink',
+    data() {
+      return {
+        drinkName: '',
+        drinkRecipe: '',
+        isEditing: false
+      }
+    },
+    mounted () {
+        const that = this
+        const name = this.$route.params.name
+        if (!name) {
+            this.$router.push({ name: 'Home' })
+        } else {
+            Services.getDrink(name)
+                .then((response) => {
+                    const drink = response.data
+                    that.drinkName = drink.name
+                    that.drinkRecipe = drink.recipe
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+    },
+    methods: {
+        handleEdit () {
+            this.isEditing = true
+        },
+        handleSaveDrink () {
+            const that = this
+            const drink = {
+                name: this.drinkName,
+                recipe: this.drinkRecipe
+            }
+            Services.saveDrink(drink)
+            .then((response) => {
+                that.isEditing = false
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+      }
+    }
+  }
+</script>
+
+<style lang="sass">
+
+</style>
+

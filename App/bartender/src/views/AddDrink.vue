@@ -1,13 +1,13 @@
 <template>
   <div class="add-drink">
-    <input v-model="name">
-    <input v-model="recipe">
+      <h1>Concoct Drink</h1>
+    <input v-model="name" placeholder="Drink Name"><br/>
+    <textarea v-model="recipe" placeholder="Drink Recipe"></textarea><br/>
     <button @click="handleSaveDrink">Concoct Drink!</button>
   </div>
 </template>
 
 <script>
-  import firebase from 'firebase'
   import Services from '@/services'
 
   export default {
@@ -19,13 +19,17 @@
       }
     },
     methods: {
-      handleSaveDrink (id) {
+      handleSaveDrink () {
         const that = this
-        Services.saveDrink(id)
+        const drink = {
+            name: this.name,
+            recipe: this.recipe
+        }
+        Services.saveDrink(drink)
           .then((response) => {
             that.$router.push({
                 name: 'Drink',
-                params: { userId: '123' }
+                params: { name: response.data.name }
             })
           })
           .catch((error) => {

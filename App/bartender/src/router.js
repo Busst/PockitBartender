@@ -6,6 +6,7 @@ import Home from '@/views/Home'
 import Login from '@/views/Login'
 import SignUp from '@/views/SignUp'
 import AddDrink from '@/views/AddDrink'
+import ShowDrink from '@/views/ShowDrink'
 
 Vue.use(Router)
 
@@ -41,6 +42,14 @@ const router = new Router({
       path: '/concoct-drink',
       name: 'AddDrink',
       component: AddDrink,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/drinks/:name',
+      name: 'Drink',
+      component: ShowDrink,
       meta: {
         requiresAuth: true
       }
