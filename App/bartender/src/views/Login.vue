@@ -75,6 +75,7 @@ p {
 }
 
 button {
+  
   text-align: center;
   position: relative;
   transition: .5s ease;

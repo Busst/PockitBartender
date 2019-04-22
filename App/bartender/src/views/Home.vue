@@ -106,6 +106,7 @@ h3 {
 p {
   text-align: center;
   font-size: 13pt;
+  white-space: pre-line;
 }
 
 button {

@@ -1,12 +1,11 @@
 <template>
   <div class="sign-up">
     <p>Let's create a new account !</p>
-    <input type="text" v-model="userName" placeholder="User Name"><br>
-    <input type="text" v-model="phoneNumber" placeholder="Phone Number"><br>
-    <input type="text" v-model="email" placeholder="Email"><br>
-    <input type="password" v-model="password" placeholder="Password"><br>
+    <input class="n name" type="text" v-model="userName" placeholder="User Name"><br>
+    <input class="n name" type="text" v-model="email" placeholder="Email"><br>
+    <input class="n name" type="password" v-model="password" placeholder="Password"><br>
     <button @click="signUp">Sign Up</button>
-    <span>or go back to <router-link to="/login">login</router-link>.</span>
+    <p>Or you can <router-link to="/login">login</router-link>!</p>
   </div>
 </template>
 
@@ -19,7 +18,6 @@
     data() {
       return {
         userName: '',
-        phoneNumber: '',
         email: '',
         password: ''
       }
@@ -31,7 +29,6 @@
             this.saveUser({
               id: user.user.uid,
               userName: this.userName,
-              phoneNumber: this.phoneNumber,
               email: this.email
             })
           },
@@ -55,6 +52,38 @@
   }
 </script>
 
-<style lang="sass">
 
+<style scoped>
+
+p {
+  text-align: center;
+}
+
+
+.n {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -10px;
+  background-color:blanchedalmond;
+  
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 110px;
+  min-height: 110px;
+}
+.name {
+  min-height: 17px;
+  max-height: 17px;
+}
+button {
+  text-align: center;
+  position: relative;
+  transition: .5s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+  
 </style>

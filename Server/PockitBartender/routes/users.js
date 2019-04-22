@@ -36,7 +36,6 @@ router.post('/', function (req, res) {
         var body = req.body;
 
         var userName = body.userName;
-        var phoneNumber = body.phoneNumber;
         var email = body.email;
         var id = body.id;
 
@@ -44,7 +43,6 @@ router.post('/', function (req, res) {
 
         var user = {
             userName,
-            phoneNumber,
             email,
             id
         }
