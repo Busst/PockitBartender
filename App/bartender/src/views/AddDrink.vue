@@ -1,6 +1,6 @@
 <template>
   <div class="add-drink">
-      <router-link :to="{ name: 'Home' }">Home</router-link>
+      <router-link :to="{ name: 'Home' }"><h2>Home</h2></router-link>
       <h1>Concoct Drink</h1>
     <input class="n name" v-model="name" placeholder="Drink Name"><br/>
     <textarea class= "n" rows=7 v-model="recipe" placeholder="Drink Recipe"></textarea><br/>
@@ -57,6 +57,12 @@ h1 {
   padding-top: 2%;
   padding-bottom: 2%;
   background-color: #b1dda2
+}
+h2 {
+  position: relative;
+  margin-left: 10px;
+  top: 67px;
+  font-size: 12pt;
 }
 
 .n {
