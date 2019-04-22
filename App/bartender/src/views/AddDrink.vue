@@ -33,7 +33,9 @@
           .then((response) => {
             that.$router.push({
                 name: 'Drink',
-                params: { name: response.data.name }
+                params: { name: response.data.name,
+                          directions: response.data.directions
+                           }
             })
           })
           .catch((error) => {

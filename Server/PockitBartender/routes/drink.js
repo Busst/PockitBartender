@@ -6,6 +6,7 @@ var db = require('../database');
 /* GET users listing. */
 
 router.get('/:name', function (req, res) {
+    
 
     var name = req.params.name;
 
@@ -31,7 +32,6 @@ router.get('/:name', function (req, res) {
 
 
 router.post('/', function (req, res) {
-    console.log(req.body.name);
     var name = req.body.name;
     var recipe = req.body.recipe;
     var directions = req.body.directions;
@@ -43,7 +43,7 @@ router.post('/', function (req, res) {
         recipe,
         directions
     });
-
+    console.log({ name, recipe, directions })
     res.send({ name, recipe, directions });
 
 });
