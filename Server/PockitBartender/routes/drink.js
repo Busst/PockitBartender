@@ -17,7 +17,7 @@ router.get('/:name', function (req, res) {
             if (!doc.exists) {
                 console.log('Does not exist');
             } else {
-                console.log(doc.data());
+                //console.log(doc.data());
                 res.send(doc.data());
             }
         })
