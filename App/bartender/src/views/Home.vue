@@ -76,16 +76,16 @@ export default {
 
 <style scoped>
 
-.class {
-  align-content: center;
-}
+
 .cc {
   background-color: aqua;
-  position: absolute;
   font-size: 12pt;
+  position: relative;
   width: 50%;
-  top: 20%;
-  left: 25%;
+  top: -75px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 h1, h2 {
   text-align: center; 
@@ -99,6 +99,9 @@ h1 {
 h3 {
   text-align: center;
   font-size: 16pt;
+  position: relative;
+  top: 20px;
+  
 }
 p {
   text-align: center;
@@ -110,7 +113,7 @@ button {
   position: absolute;
   transition: .5s ease;
   top: 5.5%;
-  left: 95%;
+  left: 93%;
 }
   
 </style>

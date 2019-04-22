@@ -34,15 +34,17 @@ router.post('/', function (req, res) {
     console.log(req.body.name);
     var name = req.body.name;
     var recipe = req.body.recipe;
+    var directions = req.body.directions;
 
     var drinkCol = db.collection('drinks');
 
     drinkCol.doc(name).set({
         name,
-        recipe
+        recipe,
+        directions
     });
 
-    res.send({ name, recipe });
+    res.send({ name, recipe, directions });
 
 });
 

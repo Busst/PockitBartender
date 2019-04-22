@@ -2,9 +2,10 @@
   <div class="add-drink">
       <router-link :to="{ name: 'Home' }">Home</router-link>
       <h1>Concoct Drink</h1>
-    <input v-model="name" placeholder="Drink Name"><br/>
-    <textarea v-model="recipe" placeholder="Drink Recipe"></textarea><br/>
-    <button @click="handleSaveDrink">Concoct Drink!</button>
+    <input class="n name" v-model="name" placeholder="Drink Name"><br/>
+    <textarea class= "n" rows=7 v-model="recipe" placeholder="Drink Recipe"></textarea><br/>
+    <textarea class= "n d" rows=7 v-model="directions" placeholder="Additional Directions"></textarea><br/>
+    <button @click="handleSaveDrink">Build Drink!</button>
   </div>
 </template>
 
@@ -16,7 +17,8 @@
     data() {
       return {
         name: '',
-        recipe: ''
+        recipe: '',
+        directions: ''
       }
     },
     methods: {
@@ -24,7 +26,8 @@
         const that = this
         const drink = {
             name: this.name,
-            recipe: this.recipe
+            recipe: this.recipe,
+            directions: this.directions
         }
         Services.saveDrink(drink)
           .then((response) => {
@@ -41,7 +44,43 @@
   }
 </script>
 
-<style lang="sass">
+
+<style scoped>
+
+
+
+h1 {
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: #b1dda2
+}
+
+.n {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  background-color:blanchedalmond;
+  
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 110px;
+  min-height: 110px;
+}
+.name {
+  min-height: 17px;
+  max-height: 17px;
+}
+.d {
+  min-height: 140px;
+  max-height: 140px;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+}
 
 </style>
 
