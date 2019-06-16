@@ -40,7 +40,7 @@
         const that = this
         const name = this.$route.params.name
         if (!name) {
-            this.$router.push({ name: 'Home' })
+            this.$router.push({ name: 'Hme' })
         } else {
             Services.getDrink(name)
                 .then((response) => {
